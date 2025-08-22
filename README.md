@@ -114,8 +114,10 @@ VERCEL_URL="your-app.vercel.app"
 #### Database URL Format
 For Neon PostgreSQL, your `DATABASE_URL` should follow this format:
 ```
-postgresql://[user]:[password]@[neon-hostname]/[database]?sslmode=require
+postgresql://[user]:[password]@[neon-hostname]-pooler.region.aws.neon.tech/[database]?sslmode=require
 ```
+
+Note: For Neon's connection pooling (recommended), use the `-pooler` suffix in the hostname. For direct connections, remove the `-pooler` suffix.
 
 ### Drizzle ORM Configuration
 
@@ -124,14 +126,26 @@ The project uses Drizzle ORM for database operations with the following configur
 #### drizzle.config.ts
 ```typescript
 import type { Config } from 'drizzle-kit';
+import * as dotenv from 'dotenv';
+
+// Load environment variables from .env file
+dotenv.config();
+
+if (!process.env.DATABASE_URL) {
+  throw new Error('DATABASE_URL environment variable is required');
+}
 
 export default {
   schema: './lib/db.ts',
   out: './drizzle',
   driver: 'pg',
   dbCredentials: {
-    connectionString: process.env.DATABASE_URL as string,
+    connectionString: process.env.DATABASE_URL,
   },
+  // Verbose output for debugging
+  verbose: true,
+  // Strict mode for type safety
+  strict: true,
 } satisfies Config;
 ```
 
