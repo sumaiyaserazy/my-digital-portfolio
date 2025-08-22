@@ -5,11 +5,14 @@ import { eq } from "drizzle-orm"
 import { revalidatePath } from "next/cache"
 import { ActionState, newsletterSubscriptionSchema } from "@/lib/types"
 
-// Define the interface but don't export it directly
-interface NewsletterState extends ActionState {
+// Export the interface
+export interface NewsletterState extends ActionState {
   email?: string;
   name?: string;
 }
+
+// Re-export the type for better compatibility
+export type { NewsletterState as NewsletterStateType }
 
 // Create an async function to return the initial state instead of exporting the object directly
 export async function getInitialNewsletterState(): Promise<NewsletterState> {
