@@ -3,54 +3,13 @@ import Link from "next/link"
 import { ArrowLeft, Calendar, User, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { NewsletterForm } from "@/components/newsletter-form"
-import { db, blogPosts } from "@/lib/db"
-import { eq } from "drizzle-orm"
 import { formatDate } from "@/lib/utils"
 import { notFound } from "next/navigation"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { BLOG_POSTS } from "@/data/blog-posts"
 
-async function getBlogPost(slug: string) {
-  try {
-    const post = await db.select().from(blogPosts).where(eq(blogPosts.slug, slug)).limit(1)
-    return { post: post[0] || null, error: null }
-  } catch (error) {
-    console.error("Error fetching blog post:", error)
-    return { post: null, error: error }
-  }
-}
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
+  const post = BLOG_POSTS.find((entry) => entry.slug === params.slug)
 
-export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { post, error } = await getBlogPost((await params).slug)
-
-  // If there's a database error, show an error message
-  if (error) {
-    return (
-      <div className="flex flex-col">
-        <div className="container px-4 md:px-6 py-12">
-          <Link href="/blog">
-            <Button variant="ghost" size="sm" className="mb-4">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Blog
-            </Button>
-          </Link>
-
-          <Alert variant="destructive" className="mb-8">
-            <AlertTitle>Database Error</AlertTitle>
-            <AlertDescription>
-              There was an error connecting to the database. Please try refreshing the page or contact support if the
-              issue persists.
-            </AlertDescription>
-          </Alert>
-
-          <div className="flex justify-center mt-8">
-            <Button onClick={() => window.location.reload()}>Refresh Page</Button>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  // If the post doesn't exist, show a 404 page
   if (!post) {
     notFound()
   }

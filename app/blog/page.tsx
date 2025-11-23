@@ -1,14 +1,10 @@
-import { db, blogPosts } from "@/lib/db"; // Import blogPosts table
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
-import { BlogPost } from "@/lib/types"; // Import BlogPost type from lib/types
-import { formatDate } from "@/lib/utils"; // Assuming formatDate is in utils
+import { formatDate } from "@/lib/utils";
+import { BLOG_POSTS } from "@/data/blog-posts";
 
-export default async function BlogPage() {
-  // Use the imported BlogPost type
-  const posts: BlogPost[] = await db.select().from(blogPosts).orderBy(blogPosts.createdAt);
-
+export default function BlogPage() {
   return (
     <div className="flex flex-col">
       <section className="w-full py-12 md:py-24 lg:py-32 bg-black relative overflow-hidden">
@@ -30,12 +26,12 @@ export default async function BlogPage() {
       <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
         <div className="container px-4 md:px-6">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => ( // Type is inferred correctly now
+            {BLOG_POSTS.map((post) => (
               <Card key={post.id} className="overflow-hidden">
-                {post.coverImage && ( // Use coverImage instead of imageUrl
+                {post.coverImage && (
                   <Link href={`/blog/${post.slug}`}>
                     <Image
-                      src={post.coverImage} // Use coverImage
+                      src={post.coverImage}
                       alt={post.title}
                       width={400}
                       height={225}
@@ -45,11 +41,9 @@ export default async function BlogPage() {
                 )}
                 <CardHeader>
                   <CardTitle>{post.title}</CardTitle>
-                  {/* Excerpt is not nullable in the schema, so no need for null check */}
                   <CardDescription>{post.excerpt}</CardDescription>
                 </CardHeader>
                 <CardContent className="mt-auto">
-                  {/* Ensure formatDate handles Date | null if createdAt can be null */}
                   <p className="text-sm text-muted-foreground">{post.createdAt ? formatDate(post.createdAt) : 'Date unavailable'}</p>
                 </CardContent>
               </Card>

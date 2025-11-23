@@ -5,23 +5,15 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
-import { ClerkProvider } from "@clerk/nextjs";
-import { AuthSync } from "@/components/auth-sync";
-// import {
-//   SignInButton,
-//   SignUpButton,
-//   SignedIn,
-//   SignedOut,
-//   UserButton,
-// } from "@clerk/nextjs"; // Removed unused imports
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "CyberShield | Cybersecurity Portfolio",
   description: "Professional portfolio showcasing expertise in cybersecurity",
-    generator: 'v0.dev'
-}
+  generator: "v0.dev",
+};
 
 export default function RootLayout({
   children,
@@ -29,11 +21,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider>
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        {/* Include AuthSync component for auto user role assignment */}
-        <AuthSync />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <div className="flex min-h-screen flex-col">
             <Navbar />
@@ -41,9 +30,9 @@ export default function RootLayout({
             <Footer />
             <Toaster />
           </div>
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
-    </ClerkProvider>
   )
 }

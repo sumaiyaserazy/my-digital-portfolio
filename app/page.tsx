@@ -4,29 +4,24 @@ import { Shield, Lock, Server, Database, AlertTriangle, FileCode } from "lucide-
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { NewsletterForm } from "@/components/newsletter-form"
-import { db, blogPosts } from "@/lib/db"
 import { formatDate } from "@/lib/utils"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import type { Metadata } from "next"
+import { BLOG_POSTS } from "@/data/blog-posts"
 
-export default async function Home() {
-  // Fetch the latest 3 blog posts with error handling
-  let latestPosts: { id: string; slug: string; title: string; excerpt: string; coverImage?: string; createdAt: string }[] = []
-  let dbError = false
+export const metadata: Metadata = {
+  title: "CyberShield | Cybersecurity Portfolio",
+  description: "Expert cybersecurity solutions to protect your organization from evolving threats. Penetration testing, security audits, and incident response services.",
+  keywords: ["cybersecurity", "penetration testing", "security audits", "cyber defense", "information security"],
+  openGraph: {
+    title: "CyberShield | Cybersecurity Portfolio",
+    description: "Expert cybersecurity solutions to protect your organization from evolving threats.",
+    type: "website",
+  },
+}
 
-  try {
-    latestPosts = (await db.select().from(blogPosts).orderBy(blogPosts.createdAt).limit(3)).map(post => ({
-      id: post.id.toString(),
-      slug: post.slug,
-      title: post.title,
-      excerpt: post.excerpt,
-      coverImage: post.coverImage || undefined,
-      createdAt: post.createdAt ? post.createdAt.toISOString() : ""
-    }))
-  } catch (error) {
-    console.error("Error fetching blog posts:", error)
-    dbError = true
-  }
+const latestPosts = BLOG_POSTS.slice(0, 3)
 
+export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -94,19 +89,6 @@ export default async function Home() {
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent"></div>
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
       </section>
-
-      {/* Database Error Alert */}
-      {dbError && (
-        <div className="container px-4 md:px-6 py-6">
-          <Alert variant="destructive">
-            <AlertTitle>Database Error</AlertTitle>
-            <AlertDescription>
-              There was an error connecting to the database. Please try refreshing the page or contact support if the
-              issue persists.
-            </AlertDescription>
-          </Alert>
-        </div>
-      )}
 
       {/* Services Section */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
@@ -291,6 +273,143 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* Quick Links Section */}
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+            <div className="space-y-2">
+              <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Explore</div>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Portfolio Sections</h2>
+              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
+                Discover all aspects of the portfolio including projects, integrations, demos, and more.
+              </p>
+            </div>
+          </div>
+          <div className="mx-auto grid max-w-5xl items-center gap-6 lg:grid-cols-3 lg:gap-12">
+            <Link href="/projects">
+              <Card className="bg-background border-primary/20 hover:border-primary/50 transition-all cursor-pointer h-full">
+                <CardHeader>
+                  <FileCode className="h-10 w-10 text-primary mb-2" />
+                  <CardTitle>Projects</CardTitle>
+                  <CardDescription>View Week 1-8 project summaries and featured work</CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+            <Link href="/mcp-integration">
+              <Card className="bg-background border-primary/20 hover:border-primary/50 transition-all cursor-pointer h-full">
+                <CardHeader>
+                  <Server className="h-10 w-10 text-primary mb-2" />
+                  <CardTitle>MCP Integration</CardTitle>
+                  <CardDescription>Model Context Protocol integration and testing</CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+            <Link href="/blog">
+              <Card className="bg-background border-primary/20 hover:border-primary/50 transition-all cursor-pointer h-full">
+                <CardHeader>
+                  <AlertTriangle className="h-10 w-10 text-primary mb-2" />
+                  <CardTitle>Blog</CardTitle>
+                  <CardDescription>Deep dives, field notes, and playbooks</CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+            <Link href="/about">
+              <Card className="bg-background border-primary/20 hover:border-primary/50 transition-all cursor-pointer h-full">
+                <CardHeader>
+                  <FileCode className="h-10 w-10 text-primary mb-2" />
+                  <CardTitle>About</CardTitle>
+                  <CardDescription>Background, certifications, and approach</CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+            <Link href="/professional">
+              <Card className="bg-background border-primary/20 hover:border-primary/50 transition-all cursor-pointer h-full">
+                <CardHeader>
+                  <Shield className="h-10 w-10 text-primary mb-2" />
+                  <CardTitle>Professional</CardTitle>
+                  <CardDescription>Branding guidelines and design system</CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+            <Link href="/security">
+              <Card className="bg-background border-primary/20 hover:border-primary/50 transition-all cursor-pointer h-full">
+                <CardHeader>
+                  <Lock className="h-10 w-10 text-primary mb-2" />
+                  <CardTitle>Security</CardTitle>
+                  <CardDescription>Security dashboard and threat model</CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Security Overview Section */}
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/40">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+            <div className="space-y-2">
+              <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Security</div>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Security Overview</h2>
+              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
+                Real-time security monitoring and protection status.
+              </p>
+            </div>
+          </div>
+          <div className="mx-auto grid max-w-5xl items-center gap-6 lg:grid-cols-4 lg:gap-12">
+            <Card className="bg-background border-primary/20">
+              <CardHeader>
+                <Shield className="h-8 w-8 text-primary mb-2" />
+                <CardTitle className="text-lg">WAF</CardTitle>
+                <CardDescription className="text-xs">Web Application Firewall</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-2xl font-bold">Active</p>
+                <p className="text-sm text-muted-foreground">1,234 blocked</p>
+              </CardContent>
+            </Card>
+            <Card className="bg-background border-primary/20">
+              <CardHeader>
+                <Server className="h-8 w-8 text-primary mb-2" />
+                <CardTitle className="text-lg">MCP</CardTitle>
+                <CardDescription className="text-xs">Model Context Protocol</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-2xl font-bold">3</p>
+                <p className="text-sm text-muted-foreground">Active servers</p>
+              </CardContent>
+            </Card>
+            <Card className="bg-background border-primary/20">
+              <CardHeader>
+                <Database className="h-8 w-8 text-primary mb-2" />
+                <CardTitle className="text-lg">Rate Limit</CardTitle>
+                <CardDescription className="text-xs">API Protection</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-2xl font-bold">100/min</p>
+                <p className="text-sm text-muted-foreground">Per IP</p>
+              </CardContent>
+            </Card>
+            <Card className="bg-background border-primary/20">
+              <CardHeader>
+                <FileCode className="h-8 w-8 text-primary mb-2" />
+                <CardTitle className="text-lg">Logs</CardTitle>
+                <CardDescription className="text-xs">Security Events</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-2xl font-bold">12.4K</p>
+                <p className="text-sm text-muted-foreground">Last 24h</p>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="flex justify-center mt-8">
+            <Link href="/security">
+              <Button variant="outline">View Full Dashboard</Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Newsletter Section */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-black relative overflow-hidden">
         <div className="container px-4 md:px-6 relative z-10">
@@ -327,36 +446,30 @@ export default async function Home() {
             </div>
           </div>
 
-          {dbError ? (
-            <div className="mx-auto max-w-5xl py-12 text-center">
-              <p className="text-muted-foreground">Unable to load blog posts at this time. Please try again later.</p>
-            </div>
-          ) : (
-            <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
-              {latestPosts.map((post) => (
-                <Link key={post.id} href={`/blog/${post.slug}`} className="group">
-                  <Card className="overflow-hidden bg-background border-primary/20 transition-all duration-200 group-hover:border-primary/50 group-hover:shadow-md">
-                    <div className="aspect-video w-full overflow-hidden">
-                      <Image
-                        src={post.coverImage || "/placeholder.svg?height=400&width=600&query=cybersecurity"}
-                        width={600}
-                        height={400}
-                        alt={post.title}
-                        className="object-cover transition-all duration-200 group-hover:scale-105"
-                      />
-                    </div>
-                    <CardHeader>
-                      <CardTitle>{post.title}</CardTitle>
-                      <CardDescription>{post.excerpt}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">{formatDate(post.createdAt)}</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-              ))}
-            </div>
-          )}
+          <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
+            {latestPosts.map((post) => (
+              <Link key={post.id} href={`/blog/${post.slug}`} className="group">
+                <Card className="overflow-hidden bg-background border-primary/20 transition-all duration-200 group-hover:border-primary/50 group-hover:shadow-md">
+                  <div className="aspect-video w-full overflow-hidden">
+                    <Image
+                      src={post.coverImage || "/placeholder.svg?height=400&width=600&query=cybersecurity"}
+                      width={600}
+                      height={400}
+                      alt={post.title}
+                      className="object-cover transition-all duration-200 group-hover:scale-105"
+                    />
+                  </div>
+                  <CardHeader>
+                    <CardTitle>{post.title}</CardTitle>
+                    <CardDescription>{post.excerpt}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">{formatDate(post.createdAt)}</p>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
 
           <div className="flex justify-center">
             <Link href="/blog">
