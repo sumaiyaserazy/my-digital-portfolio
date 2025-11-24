@@ -34,9 +34,9 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col gap-3 min-[400px]:flex-row pt-4 animate-slide-up" style={{ animationDelay: "0.3s" }}>
-              <Link href="/projects">
+              <Link href="/contact">
                 <Button size="lg" variant="outline" className="bg-white/20 border-white/30 text-white hover:bg-white/30 hover:scale-105 backdrop-blur-sm transition-all duration-200 shadow-lg hover:shadow-xl focus:ring-2 focus:ring-white/50">
-                  View Projects
+                  Contact Me
                 </Button>
               </Link>
               <Link href="/about">
