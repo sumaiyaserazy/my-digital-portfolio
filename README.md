@@ -13,7 +13,7 @@ A web-based storytelling hub that lets cybersecurity professionals present their
 CyberShield now operates as a streamlined static portfolio:
 
 - **Modern UI Components** built with shadcn/ui and Tailwind CSS
-- **Content-Driven Pages** (home, projects, MCP integration, professional branding, security dashboard, blog, legal)
+- **Content-Driven Pages** (home, projects, MCP integration, professional branding, security dashboard, legal)
 - **Curated Data** powered by local TypeScript sources instead of a database
 - **MCP Spotlight** with links to public specifications and auth demos
 - **Lightweight Newsletter Form** that records intent on the client and surfaces clear toasts
@@ -21,10 +21,9 @@ CyberShield now operates as a streamlined static portfolio:
 ## Highlights
 
 1. **Projects Timeline** – Week-by-week breakdown of the build, plus featured engagements drawn from `data/featured-projects.ts`.
-2. **Blog Library** – Static essays sourced from `data/blog-posts.ts`, rendered as rich pages with hero imagery.
-3. **MCP Integration Page** – Summarises protocol support and links directly to public references.
-4. **Security Dashboard** – Presents threat-model inspired metrics to showcase reporting style.
-5. **Consistent CTAs** – Navigation, quick links, and footer all map to real routes—no dead ends.
+2. **MCP Integration Page** – Summarises protocol support and links directly to public references.
+3. **Security Dashboard** – Presents threat-model inspired metrics to showcase reporting style.
+4. **Consistent CTAs** – Navigation, quick links, and footer all map to real routes—no dead ends.
 
 ## Technical Architecture
 
@@ -53,7 +52,7 @@ Visit `http://localhost:3000` to browse the portfolio. No environment variables 
 ### Project Structure
 - `app/` – Routes, layouts, and page sections
 - `components/` – Shared UI primitives
-- `data/` – Static blog posts and featured projects
+- `data/` – Static featured projects
 - `public/` – Images used across the site
 
 ## Licensing

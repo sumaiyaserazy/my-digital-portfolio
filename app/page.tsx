@@ -1,11 +1,8 @@
 import Link from "next/link"
-import Image from "next/image"
 import { Shield, AlertTriangle, FileCode } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { formatDate } from "@/lib/utils"
 import type { Metadata } from "next"
-import { BLOG_POSTS } from "@/data/blog-posts"
 
 export const metadata: Metadata = {
   title: "Sumaiya Serazy | Cyber Security Specialist",
@@ -17,8 +14,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 }
-
-const latestPosts = BLOG_POSTS.slice(0, 3)
 
 export default function Home() {
   return (
@@ -122,17 +117,6 @@ export default function Home() {
                 </CardHeader>
               </Card>
             </Link>
-            <Link href="/blog" className="group">
-              <Card className="bg-background border-primary/20 hover:border-primary/50 hover:shadow-xl transition-all duration-300 cursor-pointer h-full group-hover:-translate-y-1">
-                <CardHeader>
-                  <div className="bg-primary/10 p-3 rounded-lg w-fit mb-3 group-hover:bg-primary/20 transition-colors">
-                    <AlertTriangle className="h-8 w-8 text-primary" />
-                  </div>
-                  <CardTitle className="group-hover:text-primary transition-colors">Blog</CardTitle>
-                  <CardDescription>Cybersecurity insights and articles</CardDescription>
-                </CardHeader>
-              </Card>
-            </Link>
             <Link href="/about" className="group">
               <Card className="bg-background border-primary/20 hover:border-primary/50 hover:shadow-xl transition-all duration-300 cursor-pointer h-full group-hover:-translate-y-1">
                 <CardHeader>
@@ -144,54 +128,21 @@ export default function Home() {
                 </CardHeader>
               </Card>
             </Link>
+            <Link href="/security" className="group">
+              <Card className="bg-background border-primary/20 hover:border-primary/50 hover:shadow-xl transition-all duration-300 cursor-pointer h-full group-hover:-translate-y-1">
+                <CardHeader>
+                  <div className="bg-primary/10 p-3 rounded-lg w-fit mb-3 group-hover:bg-primary/20 transition-colors">
+                    <AlertTriangle className="h-8 w-8 text-primary" />
+                  </div>
+                  <CardTitle className="group-hover:text-primary transition-colors">Security</CardTitle>
+                  <CardDescription>Explore my security expertise</CardDescription>
+                </CardHeader>
+              </Card>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Recent Blog Posts */}
-      {latestPosts.length > 0 && (
-        <section className="w-full py-16 md:py-24 bg-background">
-          <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Latest Blog Posts</h2>
-              <p className="max-w-[700px] text-muted-foreground">
-                Recent articles on cybersecurity trends and insights
-              </p>
-            </div>
-
-            <div className="mx-auto grid max-w-4xl items-center gap-6 lg:grid-cols-3 lg:gap-8">
-              {latestPosts.map((post) => (
-                <Link key={post.id} href={`/blog/${post.slug}`} className="group">
-                  <Card className="overflow-hidden bg-background border-primary/20 transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-xl h-full group-hover:-translate-y-1">
-                    <div className="aspect-video w-full overflow-hidden">
-                      <Image
-                        src={post.coverImage || "/placeholder.svg?height=400&width=600&query=cybersecurity"}
-                        width={600}
-                        height={400}
-                        alt={post.title}
-                        className="object-cover transition-all duration-200 group-hover:scale-105"
-                      />
-                    </div>
-                    <CardHeader>
-                      <CardTitle className="line-clamp-2">{post.title}</CardTitle>
-                      <CardDescription className="line-clamp-2">{post.excerpt}</CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-muted-foreground">{formatDate(post.createdAt)}</p>
-                    </CardContent>
-                  </Card>
-                </Link>
-              ))}
-            </div>
-
-            <div className="flex justify-center mt-8">
-              <Link href="/blog">
-                <Button variant="outline">View All Articles</Button>
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
     </div>
   )
 }

@@ -1,7 +1,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, Phone, MapPin, Linkedin, Send } from "lucide-react"
+import { Mail, Phone, MapPin, Linkedin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { DigitalTwinChatbot } from "@/components/digital-twin-chatbot"
 
 export const metadata = {
   title: "Contact | Sumaiya Serazy",
@@ -79,7 +80,9 @@ export default function ContactPage() {
             </Card>
           </div>
 
-          <div className="mt-12 max-w-2xl mx-auto">
+          <div className="mt-12 max-w-4xl mx-auto space-y-8">
+            <DigitalTwinChatbot />
+            
             <Card className="bg-background border-primary/20">
               <CardHeader>
                 <CardTitle>Connect on LinkedIn</CardTitle>

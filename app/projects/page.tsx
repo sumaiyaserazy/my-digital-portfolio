@@ -33,35 +33,29 @@ const weekProjects = [
   {
     week: 3,
     title: "Content Modeling",
-    description: "Replaced database dependencies with curated TypeScript data sources for blog posts, featured projects, and MCP highlights.",
+    description: "Replaced database dependencies with curated TypeScript data sources for featured projects and MCP highlights.",
     icon: "Database" as const
   },
   {
     week: 4,
-    title: "Blog System",
-    description: "Developed a complete blog system with dynamic routing, markdown support, and admin interface for creating and managing blog posts. Added SEO optimization and metadata handling.",
-    icon: "FileCode" as const
-  },
-  {
-    week: 5,
     title: "Project Management",
     description: "Built reusable cards and data structures that keep the project narrative editable without needing an admin dashboard.",
     icon: "Server" as const
   },
   {
-    week: 6,
+    week: 5,
     title: "MCP Integration",
     description: "Integrated Model Context Protocol (MCP) for connecting to external tools and servers. Implemented MCP client for roll-dice, person-app, and digital-twin server interactions.",
     icon: "Network" as const
   },
   {
-    week: 7,
+    week: 6,
     title: "Security Dashboard",
     description: "Built a comprehensive security dashboard with threat modeling, WAF monitoring, rate limiting, and security logging. Implemented real-time security metrics and alerting.",
     icon: "AlertTriangle" as const
   },
   {
-    week: 8,
+    week: 7,
     title: "Professional Branding",
     description: "Established professional branding guidelines including color palette, typography system, and design consistency rules. Created documentation for maintaining brand standards.",
     icon: "Shield" as const

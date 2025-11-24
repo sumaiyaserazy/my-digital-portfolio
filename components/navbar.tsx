@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Menu, Shield, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -12,7 +12,6 @@ const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
-  { href: "/blog", label: "Blog" },
   { href: "/security", label: "Security" },
   { href: "/resources/tools", label: "Resources" },
   { href: "/contact", label: "Contact" },
@@ -50,15 +49,6 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-3">
-          <Button variant="outline" size="sm" asChild>
-            <Link href="/projects">Projects</Link>
-          </Button>
-          <Button size="sm" asChild>
-            <Link href="/about">About</Link>
-          </Button>
-        </div>
-
         <div className="flex items-center gap-2 md:hidden">
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
@@ -68,6 +58,7 @@ export default function Navbar() {
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-full max-w-xs">
+              <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
               <nav className="flex flex-col gap-4 mt-8">
                 {NAV_LINKS.map((link) => (
                   <Link
@@ -80,14 +71,6 @@ export default function Navbar() {
                   </Link>
                 ))}
               </nav>
-              <div className="mt-8 flex flex-col gap-2">
-                <Button variant="outline" onClick={() => setIsMenuOpen(false)} asChild>
-                  <Link href="/projects">Projects</Link>
-                </Button>
-                <Button onClick={() => setIsMenuOpen(false)} asChild>
-                  <Link href="/about">About</Link>
-                </Button>
-              </div>
             </SheetContent>
           </Sheet>
         </div>
