@@ -92,26 +92,25 @@ const repositories = [
 ]
 
 export const metadata = {
-  title: "Projects | CyberShield",
-  description: "Week 1-8 project summaries, comprehensive cybersecurity solutions, and GitHub repositories",
+  title: "Projects | Sumaiya Serazy",
+  description: "Week 1-8 project summaries, cybersecurity projects, and GitHub repositories",
 }
 
 export default function ProjectsPage() {
   return (
     <div className="flex flex-col">
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-black relative overflow-hidden">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 relative overflow-hidden">
         <div className="container px-4 md:px-6 relative z-10">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">Projects</h1>
-              <p className="max-w-[700px] text-gray-400 md:text-xl/relaxed">
+              <p className="max-w-[700px] text-white/90 md:text-xl/relaxed">
                 Comprehensive cybersecurity solutions and development journey from Week 1-8.
               </p>
             </div>
           </div>
         </div>
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px] opacity-10"></div>
-        <div className="absolute inset-0 bg-black bg-opacity-80"></div>
+        <div className="absolute inset-0 bg-grid-white/10 bg-[size:50px_50px] opacity-20"></div>
       </section>
 
       {/* Week 1-8 Projects */}
@@ -138,7 +137,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Featured Projects */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/40">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-purple-50/30">
         <div className="container px-4 md:px-6">
           <div className="mb-12">
             <h2 className="text-3xl font-bold tracking-tighter mb-4">Featured Projects</h2>

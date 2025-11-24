@@ -5,7 +5,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Shield, X } from "lucide-react";
-import { ThemeToggle } from "./theme-toggle";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
@@ -14,10 +13,9 @@ const NAV_LINKS = [
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
   { href: "/blog", label: "Blog" },
-  { href: "/mcp-integration", label: "MCP Integration" },
   { href: "/security", label: "Security" },
-  { href: "/professional", label: "Professional" },
   { href: "/resources/tools", label: "Resources" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -29,7 +27,7 @@ export default function Navbar() {
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2 font-semibold">
           <Shield className="h-6 w-6 text-primary" />
-          <span>CyberShield</span>
+          <span>Sumaiya Serazy</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-5 text-sm font-medium">
@@ -38,27 +36,30 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               className={cn(
-                "transition-colors hover:text-foreground",
-                pathname === link.href ? "text-foreground" : "text-foreground/60"
+                "transition-colors hover:text-primary relative",
+                pathname === link.href 
+                  ? "text-primary font-semibold" 
+                  : "text-foreground/70 hover:text-foreground"
               )}
             >
               {link.label}
+              {pathname === link.href && (
+                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary rounded-full" />
+              )}
             </Link>
           ))}
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <ThemeToggle />
           <Button variant="outline" size="sm" asChild>
-            <Link href="/projects">View Work</Link>
+            <Link href="/projects">Projects</Link>
           </Button>
           <Button size="sm" asChild>
-            <Link href="/about">Get in Touch</Link>
+            <Link href="/about">About</Link>
           </Button>
         </div>
 
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
@@ -81,10 +82,10 @@ export default function Navbar() {
               </nav>
               <div className="mt-8 flex flex-col gap-2">
                 <Button variant="outline" onClick={() => setIsMenuOpen(false)} asChild>
-                  <Link href="/projects">View Work</Link>
+                  <Link href="/projects">Projects</Link>
                 </Button>
                 <Button onClick={() => setIsMenuOpen(false)} asChild>
-                  <Link href="/about">Get in Touch</Link>
+                  <Link href="/about">About</Link>
                 </Button>
               </div>
             </SheetContent>

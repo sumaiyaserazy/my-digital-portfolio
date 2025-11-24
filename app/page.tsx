@@ -1,20 +1,19 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Shield, Lock, Server, Database, AlertTriangle, FileCode } from "lucide-react"
+import { Shield, AlertTriangle, FileCode } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { NewsletterForm } from "@/components/newsletter-form"
 import { formatDate } from "@/lib/utils"
 import type { Metadata } from "next"
 import { BLOG_POSTS } from "@/data/blog-posts"
 
 export const metadata: Metadata = {
-  title: "CyberShield | Cybersecurity Portfolio",
-  description: "Expert cybersecurity solutions to protect your organization from evolving threats. Penetration testing, security audits, and incident response services.",
-  keywords: ["cybersecurity", "penetration testing", "security audits", "cyber defense", "information security"],
+  title: "Sumaiya Serazy | Cyber Security Specialist",
+  description: "Proactive and analytical Cyber Security Specialist with strong capabilities in threat detection, incident response, and vulnerability management.",
+  keywords: ["cybersecurity", "SIEM", "threat detection", "incident response", "vulnerability management", "SOC operations"],
   openGraph: {
-    title: "CyberShield | Cybersecurity Portfolio",
-    description: "Expert cybersecurity solutions to protect your organization from evolving threats.",
+    title: "Sumaiya Serazy | Cyber Security Specialist",
+    description: "Proactive and analytical Cyber Security Specialist with strong capabilities in threat detection, incident response, and vulnerability management.",
     type: "website",
   },
 }
@@ -25,459 +24,174 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-black relative overflow-hidden">
+      <section className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 relative overflow-hidden">
         <div className="container px-4 md:px-6 relative z-10">
-          <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
-            <div className="flex flex-col justify-center space-y-4">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none bg-clip-text text-transparent bg-gradient-to-r from-primary to-indigo-500">
-                  Securing Your Digital Future
-                </h1>
-                <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                  Expert cybersecurity solutions to protect your organization from evolving threats. Penetration
-                  testing, security audits, and incident response services.
-                </p>
-              </div>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                {/* <Link href="/contact">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90">
-                    Get Started
-                  </Button>
-                </Link> */}
-                <Link href="/projects">
-                  <Button size="lg" variant="outline">
-                    Learn More
-                  </Button>
-                </Link>
-              </div>
+          <div className="flex flex-col items-center text-center space-y-6 max-w-3xl mx-auto animate-fade-in">
+            <div className="space-y-4">
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-6xl xl:text-7xl text-white animate-slide-up">
+                Sumaiya Serazy
+              </h1>
+              <p className="text-xl md:text-2xl text-white/95 font-medium animate-slide-up" style={{ animationDelay: "0.1s" }}>
+                Cyber Security Specialist
+              </p>
+              <p className="text-base md:text-lg text-white/90 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: "0.2s" }}>
+                Proactive and analytical professional specializing in threat detection, incident response, and vulnerability management. Skilled in SIEM solutions, IDS/IPS platforms, and endpoint protection tools.
+              </p>
             </div>
-            <div className="flex items-center justify-center">
-              <div className="relative w-full max-w-[500px] aspect-square">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-                <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 p-6 rounded-2xl shadow-2xl">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2 col-span-2">
-                      <div className="h-2 w-[80%] bg-primary/20 rounded-full"></div>
-                      <div className="h-2 w-[60%] bg-primary/20 rounded-full"></div>
-                    </div>
-                    <div className="h-20 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Lock className="h-8 w-8 text-primary" />
-                    </div>
-                    <div className="h-20 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Shield className="h-8 w-8 text-primary" />
-                    </div>
-                    <div className="h-20 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Server className="h-8 w-8 text-primary" />
-                    </div>
-                    <div className="h-20 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Database className="h-8 w-8 text-primary" />
-                    </div>
-                    <div className="space-y-2 col-span-2 mt-2">
-                      <div className="h-2 w-[70%] bg-primary/20 rounded-full"></div>
-                      <div className="h-2 w-[50%] bg-primary/20 rounded-full"></div>
-                    </div>
-                  </div>
-                  <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-2/3 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
-                </div>
-              </div>
+            <div className="flex flex-col gap-3 min-[400px]:flex-row pt-4 animate-slide-up" style={{ animationDelay: "0.3s" }}>
+              <Link href="/projects">
+                <Button size="lg" variant="outline" className="bg-white/20 border-white/30 text-white hover:bg-white/30 hover:scale-105 backdrop-blur-sm transition-all duration-200 shadow-lg hover:shadow-xl focus:ring-2 focus:ring-white/50">
+                  View Projects
+                </Button>
+              </Link>
+              <Link href="/about">
+                <Button size="lg" variant="outline" className="bg-white/20 border-white/30 text-white hover:bg-white/30 hover:scale-105 backdrop-blur-sm transition-all duration-200 shadow-lg hover:shadow-xl focus:ring-2 focus:ring-white/50">
+                  About Me
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
-        {/* Animated background */}
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px] opacity-10"></div>
-        <div className="absolute inset-0 bg-black bg-opacity-80"></div>
-        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black to-transparent"></div>
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black to-transparent"></div>
+        <div className="absolute inset-0 bg-grid-white/10 bg-[size:50px_50px] opacity-20"></div>
       </section>
 
-      {/* Services Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
+      {/* Key Skills Section */}
+      <section className="w-full py-16 md:py-24 bg-background">
         <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
             <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Projects</div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Comprehensive Cybersecurity Solutions</h2>
-              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Protect you from cybersecurity attackers.
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Key Expertise</h2>
+              <p className="max-w-[700px] text-muted-foreground">
+                Core areas of cybersecurity specialization
               </p>
             </div>
           </div>
-          <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
-            <Card className="bg-background border-primary/20">
+          <div className="mx-auto grid max-w-4xl items-center gap-6 lg:grid-cols-3 lg:gap-8">
+            <Card className="bg-background border-primary/20 hover:border-primary/40 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <CardHeader>
-                <AlertTriangle className="h-10 w-10 text-primary mb-2" />
-                <CardTitle>Penetration Testing</CardTitle>
+                <div className="bg-primary/10 p-3 rounded-lg w-fit mb-3">
+                  <AlertTriangle className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle>Security Monitoring & SIEM</CardTitle>
                 <CardDescription>
-                  Identify vulnerabilities before attackers do with our comprehensive penetration testing services.
+                  Log collection, event correlation, and real-time threat analysis
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>Web Application Testing</li>
-                  <li>Network Infrastructure Testing</li>
-                  <li>Mobile Application Testing</li>
-                  <li>Social Engineering Assessments</li>
-                </ul>
-              </CardContent>
             </Card>
-            <Card className="bg-background border-primary/20">
+            <Card className="bg-background border-primary/20 hover:border-primary/40 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <CardHeader>
-                <Shield className="h-10 w-10 text-primary mb-2" />
-                <CardTitle>Security Audits</CardTitle>
+                <div className="bg-primary/10 p-3 rounded-lg w-fit mb-3">
+                  <Shield className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle>Incident Response</CardTitle>
                 <CardDescription>
-                  Comprehensive assessment of your security posture against industry standards and best practices.
+                  Threat identification, triage, containment, and recovery processes
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>Compliance Assessments</li>
-                  <li>Security Architecture Review</li>
-                  <li>Cloud Security Assessment</li>
-                  <li>Risk Assessment</li>
-                </ul>
-              </CardContent>
             </Card>
-            <Card className="bg-background border-primary/20">
+            <Card className="bg-background border-primary/20 hover:border-primary/40 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <CardHeader>
-                <FileCode className="h-10 w-10 text-primary mb-2" />
-                <CardTitle>Security Training</CardTitle>
+                <div className="bg-primary/10 p-3 rounded-lg w-fit mb-3">
+                  <FileCode className="h-8 w-8 text-primary" />
+                </div>
+                <CardTitle>Vulnerability Management</CardTitle>
                 <CardDescription>
-                  Empower your team with the knowledge to recognize and respond to security threats.
+                  Assessment, prioritization, and remediation of security vulnerabilities
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  <li>Security Awareness Training</li>
-                  <li>Phishing Simulations</li>
-                  <li>Developer Security Training</li>
-                  <li>Incident Response Drills</li>
-                </ul>
-              </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Experience Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/40">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-6 lg:grid-cols-[1fr_600px] lg:gap-12 xl:grid-cols-[1fr_800px]">
-            <div className="flex flex-col justify-center space-y-4">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Experience</div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  15+ Years of Cybersecurity Expertise
-                </h2>
-                <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
-                  With extensive experience in the cybersecurity industry, I&apos;ve helped organizations of all sizes
-                  protect their digital assets and infrastructure.
-                </p>
-              </div>
-              <ul className="grid gap-2 py-4">
-                <li className="flex items-center gap-2">
-                  <div className="rounded-full bg-primary/10 p-1">
-                    <Shield className="h-4 w-4 text-primary" />
-                  </div>
-                  <span>Certified Information Systems Security Professional (CISSP)</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="rounded-full bg-primary/10 p-1">
-                    <Shield className="h-4 w-4 text-primary" />
-                  </div>
-                  <span>Certified Ethical Hacker (CEH)</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="rounded-full bg-primary/10 p-1">
-                    <Shield className="h-4 w-4 text-primary" />
-                  </div>
-                  <span>Offensive Security Certified Professional (OSCP)</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="rounded-full bg-primary/10 p-1">
-                    <Shield className="h-4 w-4 text-primary" />
-                  </div>
-                  <span>Certified Cloud Security Professional (CCSP)</span>
-                </li>
-              </ul>
-              <div>
-                <Link href="/about">
-                  <Button variant="outline">Learn More About My Experience</Button>
-                </Link>
-              </div>
-            </div>
-            <div className="flex items-center justify-center lg:justify-end">
-              <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-                <div className="grid gap-4">
-                  <div className="overflow-hidden rounded-lg bg-primary/10 p-2 lg:p-4">
-                    <Image
-                      src="/digital-watchtower.png"
-                      width={300}
-                      height={300}
-                      alt="Security monitoring"
-                      className="aspect-square rounded-md object-cover"
-                    />
-                  </div>
-                  <div className="overflow-hidden rounded-lg bg-primary/10 p-2 lg:p-4">
-                    <Image
-                      src="/digital-fortress.png"
-                      width={300}
-                      height={300}
-                      alt="Network security"
-                      className="aspect-square rounded-md object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="grid gap-4">
-                  <div className="overflow-hidden rounded-lg bg-primary/10 p-2 lg:p-4">
-                    <Image
-                      src="/cyber-guardian.png"
-                      width={300}
-                      height={300}
-                      alt="Cybersecurity professional"
-                      className="aspect-square rounded-md object-cover"
-                    />
-                  </div>
-                  <div className="overflow-hidden rounded-lg bg-primary/10 p-2 lg:p-4">
-                    <Image
-                      src="/modern-soc-overview.png"
-                      width={300}
-                      height={300}
-                      alt="Security operations center"
-                      className="aspect-square rounded-md object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="grid gap-4">
-                  <div className="overflow-hidden rounded-lg bg-primary/10 p-2 lg:p-4">
-                    <Image
-                      src="/digital-security-breach.png"
-                      width={300}
-                      height={300}
-                      alt="Penetration testing"
-                      className="aspect-square rounded-md object-cover"
-                    />
-                  </div>
-                  <div className="overflow-hidden rounded-lg bg-primary/10 p-2 lg:p-4">
-                    <Image
-                      src="/interconnected-threat-analysis.png"
-                      width={300}
-                      height={300}
-                      alt="Cyber threat intelligence"
-                      className="aspect-square rounded-md object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
       {/* Quick Links Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
+      <section className="w-full py-16 md:py-24 bg-purple-50/30">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-            <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Explore</div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Portfolio Sections</h2>
-              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-                Discover all aspects of the portfolio including projects, integrations, demos, and more.
-              </p>
-            </div>
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Explore My Work</h2>
           </div>
-          <div className="mx-auto grid max-w-5xl items-center gap-6 lg:grid-cols-3 lg:gap-12">
-            <Link href="/projects">
-              <Card className="bg-background border-primary/20 hover:border-primary/50 transition-all cursor-pointer h-full">
+          <div className="mx-auto grid max-w-3xl items-center gap-6 lg:grid-cols-3 lg:gap-8">
+            <Link href="/projects" className="group">
+              <Card className="bg-background border-primary/20 hover:border-primary/50 hover:shadow-xl transition-all duration-300 cursor-pointer h-full group-hover:-translate-y-1">
                 <CardHeader>
-                  <FileCode className="h-10 w-10 text-primary mb-2" />
-                  <CardTitle>Projects</CardTitle>
-                  <CardDescription>View Week 1-8 project summaries and featured work</CardDescription>
+                  <div className="bg-primary/10 p-3 rounded-lg w-fit mb-3 group-hover:bg-primary/20 transition-colors">
+                    <FileCode className="h-8 w-8 text-primary" />
+                  </div>
+                  <CardTitle className="group-hover:text-primary transition-colors">Projects</CardTitle>
+                  <CardDescription>View my cybersecurity projects and work</CardDescription>
                 </CardHeader>
               </Card>
             </Link>
-            <Link href="/mcp-integration">
-              <Card className="bg-background border-primary/20 hover:border-primary/50 transition-all cursor-pointer h-full">
+            <Link href="/blog" className="group">
+              <Card className="bg-background border-primary/20 hover:border-primary/50 hover:shadow-xl transition-all duration-300 cursor-pointer h-full group-hover:-translate-y-1">
                 <CardHeader>
-                  <Server className="h-10 w-10 text-primary mb-2" />
-                  <CardTitle>MCP Integration</CardTitle>
-                  <CardDescription>Model Context Protocol integration and testing</CardDescription>
+                  <div className="bg-primary/10 p-3 rounded-lg w-fit mb-3 group-hover:bg-primary/20 transition-colors">
+                    <AlertTriangle className="h-8 w-8 text-primary" />
+                  </div>
+                  <CardTitle className="group-hover:text-primary transition-colors">Blog</CardTitle>
+                  <CardDescription>Cybersecurity insights and articles</CardDescription>
                 </CardHeader>
               </Card>
             </Link>
-            <Link href="/blog">
-              <Card className="bg-background border-primary/20 hover:border-primary/50 transition-all cursor-pointer h-full">
+            <Link href="/about" className="group">
+              <Card className="bg-background border-primary/20 hover:border-primary/50 hover:shadow-xl transition-all duration-300 cursor-pointer h-full group-hover:-translate-y-1">
                 <CardHeader>
-                  <AlertTriangle className="h-10 w-10 text-primary mb-2" />
-                  <CardTitle>Blog</CardTitle>
-                  <CardDescription>Deep dives, field notes, and playbooks</CardDescription>
-                </CardHeader>
-              </Card>
-            </Link>
-            <Link href="/about">
-              <Card className="bg-background border-primary/20 hover:border-primary/50 transition-all cursor-pointer h-full">
-                <CardHeader>
-                  <FileCode className="h-10 w-10 text-primary mb-2" />
-                  <CardTitle>About</CardTitle>
-                  <CardDescription>Background, certifications, and approach</CardDescription>
-                </CardHeader>
-              </Card>
-            </Link>
-            <Link href="/professional">
-              <Card className="bg-background border-primary/20 hover:border-primary/50 transition-all cursor-pointer h-full">
-                <CardHeader>
-                  <Shield className="h-10 w-10 text-primary mb-2" />
-                  <CardTitle>Professional</CardTitle>
-                  <CardDescription>Branding guidelines and design system</CardDescription>
-                </CardHeader>
-              </Card>
-            </Link>
-            <Link href="/security">
-              <Card className="bg-background border-primary/20 hover:border-primary/50 transition-all cursor-pointer h-full">
-                <CardHeader>
-                  <Lock className="h-10 w-10 text-primary mb-2" />
-                  <CardTitle>Security</CardTitle>
-                  <CardDescription>Security dashboard and threat model</CardDescription>
+                  <div className="bg-primary/10 p-3 rounded-lg w-fit mb-3 group-hover:bg-primary/20 transition-colors">
+                    <Shield className="h-8 w-8 text-primary" />
+                  </div>
+                  <CardTitle className="group-hover:text-primary transition-colors">About</CardTitle>
+                  <CardDescription>Learn more about my background</CardDescription>
                 </CardHeader>
               </Card>
             </Link>
           </div>
         </div>
-      </section>
-
-      {/* Security Overview Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/40">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-            <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Security</div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Security Overview</h2>
-              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
-                Real-time security monitoring and protection status.
-              </p>
-            </div>
-          </div>
-          <div className="mx-auto grid max-w-5xl items-center gap-6 lg:grid-cols-4 lg:gap-12">
-            <Card className="bg-background border-primary/20">
-              <CardHeader>
-                <Shield className="h-8 w-8 text-primary mb-2" />
-                <CardTitle className="text-lg">WAF</CardTitle>
-                <CardDescription className="text-xs">Web Application Firewall</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-2xl font-bold">Active</p>
-                <p className="text-sm text-muted-foreground">1,234 blocked</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-background border-primary/20">
-              <CardHeader>
-                <Server className="h-8 w-8 text-primary mb-2" />
-                <CardTitle className="text-lg">MCP</CardTitle>
-                <CardDescription className="text-xs">Model Context Protocol</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-2xl font-bold">3</p>
-                <p className="text-sm text-muted-foreground">Active servers</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-background border-primary/20">
-              <CardHeader>
-                <Database className="h-8 w-8 text-primary mb-2" />
-                <CardTitle className="text-lg">Rate Limit</CardTitle>
-                <CardDescription className="text-xs">API Protection</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-2xl font-bold">100/min</p>
-                <p className="text-sm text-muted-foreground">Per IP</p>
-              </CardContent>
-            </Card>
-            <Card className="bg-background border-primary/20">
-              <CardHeader>
-                <FileCode className="h-8 w-8 text-primary mb-2" />
-                <CardTitle className="text-lg">Logs</CardTitle>
-                <CardDescription className="text-xs">Security Events</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-2xl font-bold">12.4K</p>
-                <p className="text-sm text-muted-foreground">Last 24h</p>
-              </CardContent>
-            </Card>
-          </div>
-          <div className="flex justify-center mt-8">
-            <Link href="/security">
-              <Button variant="outline">View Full Dashboard</Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Section */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-black relative overflow-hidden">
-        <div className="container px-4 md:px-6 relative z-10">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Newsletter</div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">
-                Stay Updated on Cybersecurity Trends
-              </h2>
-              <p className="max-w-[600px] text-gray-400 md:text-xl/relaxed">
-                Subscribe to our newsletter for the latest cybersecurity news, tips, and insights.
-              </p>
-            </div>
-            <div className="w-full max-w-md">
-              <NewsletterForm />
-            </div>
-          </div>
-        </div>
-        {/* Animated background */}
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px] opacity-10"></div>
-        <div className="absolute inset-0 bg-black bg-opacity-80"></div>
       </section>
 
       {/* Recent Blog Posts */}
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Blog</div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Latest Insights</h2>
-              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Stay informed with our latest articles on cybersecurity trends, threats, and best practices.
+      {latestPosts.length > 0 && (
+        <section className="w-full py-16 md:py-24 bg-background">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Latest Blog Posts</h2>
+              <p className="max-w-[700px] text-muted-foreground">
+                Recent articles on cybersecurity trends and insights
               </p>
             </div>
-          </div>
 
-          <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3 lg:gap-12">
-            {latestPosts.map((post) => (
-              <Link key={post.id} href={`/blog/${post.slug}`} className="group">
-                <Card className="overflow-hidden bg-background border-primary/20 transition-all duration-200 group-hover:border-primary/50 group-hover:shadow-md">
-                  <div className="aspect-video w-full overflow-hidden">
-                    <Image
-                      src={post.coverImage || "/placeholder.svg?height=400&width=600&query=cybersecurity"}
-                      width={600}
-                      height={400}
-                      alt={post.title}
-                      className="object-cover transition-all duration-200 group-hover:scale-105"
-                    />
-                  </div>
-                  <CardHeader>
-                    <CardTitle>{post.title}</CardTitle>
-                    <CardDescription>{post.excerpt}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">{formatDate(post.createdAt)}</p>
-                  </CardContent>
-                </Card>
+            <div className="mx-auto grid max-w-4xl items-center gap-6 lg:grid-cols-3 lg:gap-8">
+              {latestPosts.map((post) => (
+                <Link key={post.id} href={`/blog/${post.slug}`} className="group">
+                  <Card className="overflow-hidden bg-background border-primary/20 transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-xl h-full group-hover:-translate-y-1">
+                    <div className="aspect-video w-full overflow-hidden">
+                      <Image
+                        src={post.coverImage || "/placeholder.svg?height=400&width=600&query=cybersecurity"}
+                        width={600}
+                        height={400}
+                        alt={post.title}
+                        className="object-cover transition-all duration-200 group-hover:scale-105"
+                      />
+                    </div>
+                    <CardHeader>
+                      <CardTitle className="line-clamp-2">{post.title}</CardTitle>
+                      <CardDescription className="line-clamp-2">{post.excerpt}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">{formatDate(post.createdAt)}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+
+            <div className="flex justify-center mt-8">
+              <Link href="/blog">
+                <Button variant="outline">View All Articles</Button>
               </Link>
-            ))}
+            </div>
           </div>
-
-          <div className="flex justify-center">
-            <Link href="/blog">
-              <Button variant="outline">View All Articles</Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
     </div>
   )
 }

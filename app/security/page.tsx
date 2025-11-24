@@ -3,38 +3,37 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Shield, AlertTriangle, Activity, FileText, Lock, Network } from "lucide-react"
 
 export const metadata = {
-  title: "Security Dashboard | CyberShield",
-  description: "Security overview, threat model, and monitoring dashboard",
+  title: "Security Expertise | Sumaiya Serazy",
+  description: "My experience with security tools, technologies, and frameworks",
 }
 
 export default function SecurityPage() {
   return (
     <div className="flex flex-col">
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-black relative overflow-hidden">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-purple-600 via-purple-500 to-pink-500 relative overflow-hidden">
         <div className="container px-4 md:px-6 relative z-10">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">Security Dashboard</h1>
-              <p className="max-w-[700px] text-gray-400 md:text-xl/relaxed">
-                Real-time security monitoring, threat model, and protection status.
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">Security Expertise</h1>
+              <p className="max-w-[700px] text-white/90 md:text-xl/relaxed">
+                My experience with security tools, technologies, and frameworks in cybersecurity.
               </p>
             </div>
           </div>
         </div>
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px] opacity-10"></div>
-        <div className="absolute inset-0 bg-black bg-opacity-80"></div>
+        <div className="absolute inset-0 bg-grid-white/10 bg-[size:50px_50px] opacity-20"></div>
       </section>
 
       <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
         <div className="container px-4 md:px-6 space-y-12">
-          {/* Threat Model */}
+          {/* Security Knowledge Areas */}
           <Card className="bg-background border-primary/20">
             <CardHeader>
               <div className="flex items-center gap-3">
                 <Shield className="h-8 w-8 text-primary" />
-                <CardTitle>Threat Model</CardTitle>
+                <CardTitle>Security Knowledge Areas</CardTitle>
               </div>
-              <CardDescription>Identified threats and mitigation strategies</CardDescription>
+              <CardDescription>Areas of expertise and understanding in cybersecurity</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid gap-6 md:grid-cols-2">
@@ -42,19 +41,19 @@ export default function SecurityPage() {
                   <div>
                     <h3 className="font-semibold mb-2 flex items-center gap-2">
                       <AlertTriangle className="h-5 w-5 text-yellow-500" />
-                      Web Application Attacks
+                      Threat Detection & Analysis
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Protection against SQL injection, XSS, CSRF, and other OWASP Top 10 vulnerabilities.
+                      Experience with SIEM tools for log collection, event correlation, and real-time threat analysis. Skilled in identifying potential intrusions and suspicious activities.
                     </p>
                   </div>
                   <div>
                     <h3 className="font-semibold mb-2 flex items-center gap-2">
                       <Network className="h-5 w-5 text-red-500" />
-                      DDoS Attacks
+                      Network Security
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Rate limiting and traffic filtering to prevent distributed denial of service attacks.
+                      Understanding of network security protocols, firewalls, VPNs, and network segmentation. Experience with IDS/IPS platforms to detect and block suspicious traffic.
                     </p>
                   </div>
                 </div>
@@ -62,19 +61,19 @@ export default function SecurityPage() {
                   <div>
                     <h3 className="font-semibold mb-2 flex items-center gap-2">
                       <Lock className="h-5 w-5 text-blue-500" />
-                      Authentication Bypass
+                      Incident Response
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Multi-factor authentication and secure session management to prevent unauthorized access.
+                      Knowledge of identification, triage, containment, eradication, recovery, and reporting processes. Experience supporting containment strategies to minimize business impact.
                     </p>
                   </div>
                   <div>
                     <h3 className="font-semibold mb-2 flex items-center gap-2">
                       <FileText className="h-5 w-5 text-green-500" />
-                      Data Breaches
+                      Compliance & Governance
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Encryption at rest and in transit, along with access controls to protect sensitive data.
+                      Understanding of ISO 27001, NIST, and GDPR frameworks and their relevance in SOC operations. Strong skills in preparing threat reports and documenting incidents.
                     </p>
                   </div>
                 </div>
@@ -82,108 +81,108 @@ export default function SecurityPage() {
             </CardContent>
           </Card>
 
-          {/* Security Dashboard Cards */}
+          {/* Security Tools & Technologies */}
           <div className="grid gap-6 md:grid-cols-2">
             <SecurityDashboardCard
-              title="Web Application Firewall (WAF)"
-              description="Protection against web-based attacks"
+              title="SIEM Solutions"
+              description="Security Information and Event Management"
               icon={<Shield className="h-8 w-8 text-primary" />}
               metrics={[
                 {
-                  name: "Requests Blocked",
+                  name: "Experience Level",
                   status: "active",
-                  value: "1,234",
-                  description: "Last 24 hours"
+                  value: "Practical",
+                  description: "Log collection & event correlation"
                 },
                 {
-                  name: "Threats Detected",
-                  status: "warning",
-                  value: "23",
-                  description: "Active threats"
+                  name: "Key Skills",
+                  status: "active",
+                  value: "Real-time Analysis",
+                  description: "Threat detection & monitoring"
                 },
                 {
-                  name: "Rules Active",
+                  name: "Application",
                   status: "active",
-                  value: "156",
-                  description: "WAF rules"
+                  value: "SOC Operations",
+                  description: "Supporting security operations"
                 }
               ]}
             />
 
             <SecurityDashboardCard
-              title="MCP Security"
-              description="Model Context Protocol security monitoring"
+              title="IDS/IPS Platforms"
+              description="Intrusion Detection & Prevention Systems"
               icon={<Network className="h-8 w-8 text-primary" />}
               metrics={[
                 {
-                  name: "Active Connections",
+                  name: "Familiarity",
                   status: "active",
-                  value: "3",
-                  description: "MCP servers"
+                  value: "Familiar",
+                  description: "Detection & blocking capabilities"
                 },
                 {
-                  name: "Requests/sec",
+                  name: "Focus Area",
                   status: "active",
-                  value: "12.5",
-                  description: "Average"
+                  value: "Traffic Analysis",
+                  description: "Suspicious traffic identification"
                 },
                 {
-                  name: "Error Rate",
+                  name: "Implementation",
                   status: "active",
-                  value: "0.1%",
-                  description: "Last hour"
+                  value: "Network Security",
+                  description: "Endpoint protection tools"
                 }
               ]}
             />
 
             <SecurityDashboardCard
-              title="Rate Limiting"
-              description="API and endpoint rate limiting status"
+              title="Vulnerability Management"
+              description="Identifying and managing security vulnerabilities"
               icon={<Activity className="h-8 w-8 text-primary" />}
               metrics={[
                 {
-                  name: "Requests Allowed",
+                  name: "Process Knowledge",
                   status: "active",
-                  value: "45,678",
-                  description: "Last 24 hours"
+                  value: "Complete",
+                  description: "Identify, assess, prioritize"
                 },
                 {
-                  name: "Rate Limit Hits",
-                  status: "warning",
-                  value: "89",
-                  description: "Blocked requests"
+                  name: "Remediation",
+                  status: "active",
+                  value: "Support Role",
+                  description: "Remediation & patch cycles"
                 },
                 {
-                  name: "Threshold",
+                  name: "Risk Assessment",
                   status: "active",
-                  value: "100/min",
-                  description: "Per IP"
+                  value: "Prioritization",
+                  description: "Business impact analysis"
                 }
               ]}
             />
 
             <SecurityDashboardCard
-              title="Security Logs"
-              description="Audit and security event logging"
+              title="Compliance Frameworks"
+              description="Governance, risk, and compliance knowledge"
               icon={<FileText className="h-8 w-8 text-primary" />}
               metrics={[
                 {
-                  name: "Events Logged",
+                  name: "ISO 27001",
                   status: "active",
-                  value: "12,456",
-                  description: "Last 24 hours"
+                  value: "Understanding",
+                  description: "Information security management"
                 },
                 {
-                  name: "Critical Alerts",
-                  status: "error",
-                  value: "2",
-                  description: "Requires attention"
+                  name: "NIST Framework",
+                  status: "active",
+                  value: "Knowledge",
+                  description: "Cybersecurity framework"
                 },
                 {
-                  name: "Log Retention",
+                  name: "GDPR",
                   status: "active",
-                  value: "90 days",
-                  description: "Policy"
+                  value: "Awareness",
+                  description: "Data protection regulation"
                 }
               ]}
             />

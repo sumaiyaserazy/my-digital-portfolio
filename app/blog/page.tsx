@@ -1,52 +1,32 @@
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
 import { formatDate } from "@/lib/utils";
 import { BLOG_POSTS } from "@/data/blog-posts";
 
 export default function BlogPage() {
   return (
     <div className="flex flex-col">
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-black relative overflow-hidden">
-        <div className="container px-4 md:px-6 relative z-10">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl text-white">Cybersecurity Blog</h1>
-              <p className="max-w-[700px] text-gray-400 md:text-xl/relaxed">
-                Insights, tips, and best practices to help you stay secure in an ever-evolving threat landscape.
-              </p>
-            </div>
-          </div>
-        </div>
-        {/* Animated background */}
-        <div className="absolute inset-0 bg-grid-white/5 bg-[size:50px_50px] opacity-10"></div>
-        <div className="absolute inset-0 bg-black bg-opacity-80"></div>
-      </section>
-
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
+      <section className="w-full py-12 md:py-16 bg-background">
         <div className="container px-4 md:px-6">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mb-8">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl mb-2">Blog</h1>
+            <p className="text-muted-foreground">
+              Cybersecurity insights and articles
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {BLOG_POSTS.map((post) => (
-              <Card key={post.id} className="overflow-hidden">
-                {post.coverImage && (
-                  <Link href={`/blog/${post.slug}`}>
-                    <Image
-                      src={post.coverImage}
-                      alt={post.title}
-                      width={400}
-                      height={225}
-                      className="w-full h-48 object-cover"
-                    />
-                  </Link>
-                )}
-                <CardHeader>
-                  <CardTitle>{post.title}</CardTitle>
-                  <CardDescription>{post.excerpt}</CardDescription>
-                </CardHeader>
-                <CardContent className="mt-auto">
-                  <p className="text-sm text-muted-foreground">{post.createdAt ? formatDate(post.createdAt) : 'Date unavailable'}</p>
-                </CardContent>
-              </Card>
+              <Link key={post.id} href={`/blog/${post.slug}`} className="group">
+                <Card className="overflow-hidden h-full hover:border-primary/50 hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1">
+                  <CardHeader>
+                    <CardTitle className="group-hover:text-primary transition-colors">{post.title}</CardTitle>
+                    <CardDescription className="line-clamp-2">{post.excerpt}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">{post.createdAt ? formatDate(post.createdAt) : 'Date unavailable'}</p>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>

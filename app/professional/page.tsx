@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Palette, Type, Image as ImageIcon, Layers } from "lucide-react"
 
 export const metadata = {
-  title: "Professional Branding | CyberShield",
+  title: "Professional Branding | Sumaiya Serazy",
   description: "Color palette, typography, and branding guidelines",
 }
 
